@@ -260,3 +260,4 @@ Route::get('/session1/get', function() {
 use App\Http\Controllers\StudController;
 Route::get('/student', [StudController::class, 'create'])->name('student.create');
 Route::post('/student',[StudController::class, 'store'])->name('student.store');
+
