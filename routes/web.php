@@ -236,10 +236,10 @@ Route::get('/delete-preferences', [preferenceController::class, 'deletePreferenc
 // })->name('file.form');
 // Route::post('/upload',[FileUploadController::class,'upload'])->name('file.upload');
 
-use App\Http\Controllers\FileUploadController;
+// use App\Http\Controllers\FileUploadController;
 
-Route::get('/upload', [FileUploadController::class, 'showForm'])->name('file.form');
-Route::post('/upload', [FileUploadController::class, 'upload'])->name('file.upload');
+// Route::get('/upload', [FileUploadController::class, 'showForm'])->name('file.form');
+// Route::post('/upload', [FileUploadController::class, 'upload'])->name('file.upload');
 
 Route::get('session/get',function(){
     $value=session('key','Default value');
@@ -257,7 +257,10 @@ Route::get('/session1/get', function() {
     return response()->json([$session_key => $value]);
 });
 
-use App\Http\Controllers\StudController;
-Route::get('/student', [StudController::class, 'create'])->name('student.create');
-Route::post('/student',[StudController::class, 'store'])->name('student.store');
+use App\Http\Controllers\FileUploadController;
+
+Route::get('/upload', function(){
+    return view('upload');
+})->name('file.form');
+Route::post('/upload',[FileUploadController::class,'upload'])->name('file.upload');
 

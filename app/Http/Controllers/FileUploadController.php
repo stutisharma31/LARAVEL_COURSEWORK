@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
 {
-    // Method to display the file upload form
+   
     public function showForm() {
-        return view('upload'); // This assumes you have a 'upload.blade.php' file in 'resources/views/'
+        return view('upload');
     }
-
-    // Method to handle the file upload
+  
     public function upload(Request $request) {
         $request->validate([
-            'file' => 'required|file|mimes:jpg,png,pdf|max:2048',
+            'name'=>'required|max:255',
+            'email'=>'required|email',
+            'file' => 'required|file|mimes:jpeg,png|max:2048',
         ]);
 
         $file = $request->file('file');
